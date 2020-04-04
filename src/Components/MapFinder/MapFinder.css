@@ -1,0 +1,10 @@
+.MapFinder {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.MapBox {
+  border: 4px #540000 solid;
+  border-radius: 20px;
+  margin-top: 20px;
+}

@@ -1,0 +1,19 @@
+.Character {
+  position: block;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  border: solid 1px black;
+  border-radius: 50%;
+  cursor: default;
+  z-index: 4;
+}
+
+.HighlightCharacter {
+  border: 4px solid #ffb417;
+}
+
+.Name {
+  font-size: 16px;
+  text-overflow: no-wrap;
+}

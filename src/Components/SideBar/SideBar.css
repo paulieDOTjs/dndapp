@@ -1,0 +1,12 @@
+.SideBar {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: white;
+  left: 0;
+  top: 0px;
+}
+
+.SideBarHeadline {
+  font-size: 20px;
+  color: #540000;
+}

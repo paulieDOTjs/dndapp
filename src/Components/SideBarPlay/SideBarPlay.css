@@ -1,0 +1,27 @@
+.SideBarPlay {
+  width: 100%;
+  height: 100%;
+  color: #ffb417;
+  border-right: #540000 4px solid;
+}
+
+.CharacterDisplaySection {
+  border-top: #540000 4px solid;
+  max-height: Calc(80% - 50px);
+  overflow-y: scroll;
+}
+
+.MoveSpeedRemainingSection {
+  background-color: #ffb417;
+  border-top: #540000 4px solid;
+  height: 48px;
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.MoveSpeedRemainingParagraph {
+  color: #540000;
+  margin: 0;
+}

@@ -1,0 +1,24 @@
+.ObjectSelector {
+  cursor: pointer;
+  text-align: center;
+  border: #540000 2px solid;
+  color: #540000;
+  border-radius: 4px;
+}
+
+.ObjectSelector:hover {
+  background-color: #540000;
+  transition: 0.3s;
+  color: white;
+}
+
+.Highlight:hover {
+  background-color: #ffb417;
+  color: #540000;
+}
+
+.Highlight {
+  transition: 0.3s;
+  background-color: #ffb417;
+  color: #540000;
+}
