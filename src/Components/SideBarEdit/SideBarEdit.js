@@ -55,7 +55,7 @@ function SideBarEdit(props) {
 
   return useMemo(() => {
     return (
-      <div className="SideBarEdit container">
+      <div className="SideBarEdit">
         <div className="row">
           <div className="col">
             <h1 className="SideBarHeadline">EDIT VIEW</h1>

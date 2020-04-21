@@ -4,6 +4,8 @@
   background-color: white;
   left: 0;
   top: 0px;
+  overflow-y: scroll;
+  border-right: #540000 4px solid;
 }
 
 .SideBarHeadline {

@@ -15,23 +15,14 @@ import UserMapPage from "./Pages/UserMapPage/UserMapPage";
 
 import { Auth } from "./State/auth/auth";
 
-function MainMainPage() {
-  return (
-    <>
-      <SideBar />
-      <PlayPage />
-    </>
-  );
-}
-
 function App(props) {
   superagent
     .get(process.env.REACT_APP_SERVER_URL + "/ping")
-    .then(function(response) {
+    .then(function (response) {
       // handle success
       console.log("ok", response.text);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // handle error
       console.log("error", error);
     });
@@ -44,7 +35,7 @@ function App(props) {
             <Header />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route path="/play" component={MainMainPage} />
+              <Route path="/play" component={PlayPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignupPage} />
               <Route path="/logout" component={LogoutPage} />
