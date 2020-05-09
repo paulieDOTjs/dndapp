@@ -12,7 +12,7 @@ https://map-app-dnd.netlify.com/
 
 
 # Installation
-If run locally NPM install should be run, NPM start should be run after. The app uses React so it will autolaunch on port 3000, if it is occupied it will prompt to run on another one. The app also requires the use of the app back-end-TTRPG which can be found here: https://github.com/paulrobhendrickson/back-end-TTRPG. 
+If run locally NPM install should be run, NPM start should be run after. The app uses React so it will autolaunch on port 3000, if it is occupied it will prompt to run on another one. The app also requires the use of the app back-end-TTRPG which can be found here: https://map-app-dnd.netlify.app/. 
 
 # Usage
 On the play screen it defaults in edit mode. While in edit mode the user can save the map to the database, mark as a public or private map, adjust the number of columns or rows of the map, add objects to the map, and add, delete, or modify characters. All of this is done by clicking, and typing in the inputs. 
