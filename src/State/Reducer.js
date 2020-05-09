@@ -20,9 +20,10 @@ import {
   UPDATE_MAP_NAME,
   UPDATE_USER,
   CLEAR_MAP,
-  UPDATE_MAP_ZOOM
+  UPDATE_MAP_ZOOM,
 } from "./Actions";
-import moveCharacter from "../Hooks/moveCharacter";
+
+import moveCharacter from "./moveCharacter/moveCharacter";
 
 export default function Reducer(state, action) {
   switch (action.type) {
@@ -38,7 +39,7 @@ export default function Reducer(state, action) {
 
     case CLEAR_MAP: {
       const dimensions = {
-        x: state.tileMap[0].length
+        x: state.tileMap[0].length,
       };
       let row = "0";
       row = row.repeat(dimensions.x);
@@ -53,7 +54,7 @@ export default function Reducer(state, action) {
         tileMap: newTileMap,
         saved: false,
         creator: state.username,
-        editedBy: state.username
+        editedBy: state.username,
       };
     }
 
@@ -80,7 +81,7 @@ export default function Reducer(state, action) {
         mapName: action.payload.name,
         editedBy: action.payload.editedBy,
         saved: true,
-        creator: action.payload.creator
+        creator: action.payload.creator,
       };
     }
 
@@ -101,14 +102,14 @@ export default function Reducer(state, action) {
         color: "Black",
         position: {
           x: 1,
-          y: 1
-        }
+          y: 1,
+        },
       };
       const characters = [...state.characters];
       characters.push(defaultCharacterInfo);
       return {
         ...state,
-        characters: characters
+        characters: characters,
       };
     }
 
@@ -121,14 +122,14 @@ export default function Reducer(state, action) {
         color: "Black",
         position: {
           x: 1,
-          y: 1
-        }
+          y: 1,
+        },
       };
 
-      if (state.characters.length === 1) {
+      if (state.characters.length < 2) {
         return { ...state, characters: [defaultCharacterInfo] };
       }
-      const characters = state.characters.filter(character => {
+      const characters = state.characters.filter((character) => {
         return character.characterID !== action.payload.characterID;
       });
 
@@ -138,7 +139,7 @@ export default function Reducer(state, action) {
     case UPDATE_CHARACTER_INFO: {
       return {
         ...state,
-        characters: action.payload
+        characters: action.payload,
       };
     }
 
@@ -154,7 +155,7 @@ export default function Reducer(state, action) {
         turn: currentTurn,
         movespeed: state.characters[currentTurn].movespeed,
         movespeedRemaining: state.characters[currentTurn].movespeed,
-        diagMove: false
+        diagMove: false,
       };
     }
 
@@ -169,7 +170,7 @@ export default function Reducer(state, action) {
           turn: clickedTurn,
           movespeed: state.characters[clickedTurn].movespeed,
           movespeedRemaining: state.characters[clickedTurn].movespeed,
-          diagMove: false
+          diagMove: false,
         };
       }
     }
@@ -177,7 +178,7 @@ export default function Reducer(state, action) {
     case SET_CHARACTER: {
       const clickedPosition = {
         x: action.payload.dataset.col,
-        y: action.payload.dataset.row
+        y: action.payload.dataset.row,
       };
       const charactersArray = state.characters;
       charactersArray[state.turn].position = { ...clickedPosition };
@@ -187,7 +188,7 @@ export default function Reducer(state, action) {
     case SELECT_OBJECT: {
       return {
         ...state,
-        selectedObject: action.payload.dataset.tiletype
+        selectedObject: action.payload.dataset.tiletype,
       };
     }
 
@@ -225,7 +226,7 @@ export default function Reducer(state, action) {
 
       const editors = [...state.editedBy];
 
-      if (editors.find(editor => editor === state.username) === undefined) {
+      if (editors.find((editor) => editor === state.username) === undefined) {
         editors.push(state.username);
       }
 
@@ -235,14 +236,14 @@ export default function Reducer(state, action) {
         selectedObject: selectedObject,
         creator: state.creator === "" ? state.username : state.creator,
         saved: false,
-        editedBy: editors
+        editedBy: editors,
       };
     }
 
     //Changes the game between play or edit mode
     case TOGGLE_EDIT_MODE: {
       const allCharacters = [...state.characters];
-      allCharacters.sort(function(a, b) {
+      allCharacters.sort(function (a, b) {
         var characterA = parseInt(a.initiative);
         var characterB = parseInt(b.initiative);
         if (characterA < characterB) {
@@ -259,7 +260,7 @@ export default function Reducer(state, action) {
         editMode: !state.editMode,
         characters: allCharacters,
         movespeedRemaining: allCharacters[state.turn].movespeed,
-        diagMove: false
+        diagMove: false,
       };
     }
 
@@ -270,7 +271,7 @@ export default function Reducer(state, action) {
     case CREATE_MAP: {
       const editors = [...state.editedBy];
 
-      if (editors.find(editor => editor === state.username) === undefined) {
+      if (editors.find((editor) => editor === state.username) === undefined) {
         editors.push(state.username);
       }
       //Temporary version of the tileMap
@@ -334,7 +335,7 @@ export default function Reducer(state, action) {
         ...state,
         tileMap: tileMapLocal,
         saved: false,
-        editedBy: editors
+        editedBy: editors,
       };
     }
 

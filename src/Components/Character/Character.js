@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import "./Character.css";
 
 import { GameContext } from "../../State/Context.js";
@@ -21,7 +21,7 @@ function Character(props) {
         gridColumnStart: props.props.position.x,
         gridRowStart: props.props.position.y,
         backgroundColor: props.props.color,
-        fontSize: state.tileSize / 3 + "rem"
+        fontSize: state.tileSize / 3 + "rem",
       }}
     >
       {props.props.name.slice(0, 1)}
