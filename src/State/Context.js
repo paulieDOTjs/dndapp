@@ -28,9 +28,19 @@ const initialState = {
       initiative: 12,
       color: "Black",
       number: 0,
-      position: { x: "4", y: "10" }
-    }
+      position: { x: "4", y: "10" },
+    },
+    {
+      name: "Elseth Maleficum",
+      characterID: "c2d49bd1-fc19-4fca-9285-9db2608b5b38",
+      movespeed: "30",
+      initiative: 12,
+      color: "Black",
+      number: 0,
+      position: { x: "4", y: "10" },
+    },
   ],
+  ghost: { x: "4", y: "10" },
   tileMap: [
     "0000000000000000",
     "0000000000000000",
@@ -47,8 +57,8 @@ const initialState = {
     "0000000000000000",
     "0000000000000000",
     "0000000000000000",
-    "0000000000000000"
-  ]
+    "0000000000000000",
+  ],
 };
 
 export default function GameProvider(props) {
@@ -57,14 +67,14 @@ export default function GameProvider(props) {
   function HandleKey(e) {
     if (e.code === "Enter") {
       dispatch({
-        type: Actions.END_TURN
+        type: Actions.END_TURN,
       });
       return;
     }
 
     dispatch({
       type: Actions.MOVE_CHARACTER,
-      payload: e
+      payload: e,
     });
   }
 
@@ -75,12 +85,12 @@ export default function GameProvider(props) {
 
   function handleClick(e) {
     try {
-      e.path.map(x => {
+      e.path.map((x) => {
         if (x.dataset.clickable) {
           if (x.dataset.action) {
             dispatch({
               type: x.dataset.action,
-              payload: x
+              payload: x,
             });
           }
         }

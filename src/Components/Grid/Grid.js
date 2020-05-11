@@ -4,6 +4,7 @@ import Tile from "../Tile/Tile";
 import Character from "../Character/Character";
 import Resizer from "../Resizer/Resizer";
 import { GameContext } from "../../State/Context.js";
+import CharacterGhost from "../CharacterGhost/CharacterGhost";
 
 function Grid() {
   //Gets state from context
@@ -12,6 +13,13 @@ function Grid() {
   //An array that will hold all the tiles to be placed on the grid
   const tiles = [];
   const characters = [];
+
+  characters.push(
+    <CharacterGhost
+      position={state.characters[state.turn].position}
+      tileSize={state.tileSize}
+    />
+  );
 
   for (let i = 0; i < state.characters.length; i++) {
     characters.push(
@@ -48,7 +56,7 @@ function Grid() {
           height: state.tileSize + "rem",
           width: state.tileSize + "rem",
           gridColumn: `${colNumber}`,
-          gridRow: `${rowNumber}`
+          gridRow: `${rowNumber}`,
         }}
       ></Tile>
     );
@@ -67,7 +75,7 @@ function Grid() {
     }px + ${state.tileMap.length}px )`,
     width: `Calc(${state.tileMap[0].length * state.tileSize}rem + ${
       state.tileMap[0].length
-    }px + ${state.tileMap[0].length}px )`
+    }px + ${state.tileMap[0].length}px )`,
   };
   return useMemo(() => {
     return (
@@ -75,7 +83,7 @@ function Grid() {
         className="Gap"
         style={{
           height: styling.height + "50px",
-          width: styling.width + "150px"
+          width: styling.width + "150px",
         }}
       >
         <div className="Grid" style={styling}>
