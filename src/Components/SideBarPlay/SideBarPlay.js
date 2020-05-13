@@ -56,6 +56,15 @@ function SideBarPlay(props) {
             End Turn
           </Button>
         </div>
+        <div className="col-12">
+          <Button
+            style={{ minWidth: "100%" }}
+            data-action={Actions.RESET_TURN}
+            className="Button"
+          >
+            Reset Turn
+          </Button>
+        </div>
       </div>
       <div className="row">
         <div className="col-12">

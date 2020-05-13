@@ -9,6 +9,7 @@ export const SET_CHARACTER = "SET_CHARACTER";
 
 export const END_TURN = "END_TURN";
 export const SET_TURN = "SET_TURN";
+export const RESET_TURN = "RESET_TURN";
 
 export const TOGGLE_EDIT_MODE = "TOGGLE_EDIT_MODE";
 export const TOGGLE_PRIVATE_MAP = "TOGGLE_PRIVATE_MAP";

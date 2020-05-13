@@ -10,6 +10,7 @@ import {
   SET_CHARACTER,
   END_TURN,
   SET_TURN,
+  RESET_TURN,
   NO_ACTION,
   UPDATE_CHARACTER_INFO,
   DELETE_CHARACTER,
@@ -31,6 +32,19 @@ export default function Reducer(state, action) {
     case NO_ACTION: {
       console.log("Received no action dispatch");
       return { ...state };
+    }
+
+    case RESET_TURN: {
+      console.log(state.ghost);
+      const newCharacters = [...state.characters];
+      newCharacters[state.turn].position = state.ghost;
+      return {
+        ...state,
+        characters: newCharacters,
+        movespeed: state.characters[state.turn].movespeed,
+        movespeedRemaining: state.characters[state.turn].movespeed,
+        diagMove: false,
+      };
     }
 
     case UPDATE_USER: {
@@ -156,6 +170,7 @@ export default function Reducer(state, action) {
         movespeed: state.characters[currentTurn].movespeed,
         movespeedRemaining: state.characters[currentTurn].movespeed,
         diagMove: false,
+        ghost: state.characters[currentTurn].position,
       };
     }
 
@@ -165,12 +180,14 @@ export default function Reducer(state, action) {
       if (currentTurn === clickedTurn) {
         return { ...state };
       } else {
+        currentTurn = clickedTurn;
         return {
           ...state,
           turn: clickedTurn,
-          movespeed: state.characters[clickedTurn].movespeed,
-          movespeedRemaining: state.characters[clickedTurn].movespeed,
+          movespeed: state.characters[state.clickedTurn].movespeed,
+          movespeedRemaining: state.characters[state.clickedTurn].movespeed,
           diagMove: false,
+          ghost: state.characters[currentTurn].position,
         };
       }
     }
