@@ -180,12 +180,11 @@ export default function Reducer(state, action) {
       if (currentTurn === clickedTurn) {
         return { ...state };
       } else {
-        currentTurn = clickedTurn;
         return {
           ...state,
           turn: clickedTurn,
-          movespeed: state.characters[state.clickedTurn].movespeed,
-          movespeedRemaining: state.characters[state.clickedTurn].movespeed,
+          movespeed: state.characters[clickedTurn].movespeed,
+          movespeedRemaining: state.characters[clickedTurn].movespeed,
           diagMove: false,
           ghost: state.characters[currentTurn].position,
         };
