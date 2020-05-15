@@ -1,11 +1,11 @@
 import React from "react";
 import "./PlayPage.css";
-import Grid from "../../Components/Grid/Grid";
+import GridContainer from "../../Components/Grid/GridContainer/GridContainer";
 
 function PlayPage(props) {
   return (
     <div className="PlayPage">
-      <Grid />
+      <GridContainer />
     </div>
   );
 }

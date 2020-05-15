@@ -1,4 +1,4 @@
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import { tileMapDirectory } from "../Utils/tileMapDirectory";
 
 import {
@@ -110,7 +110,7 @@ export default function Reducer(state, action) {
     case ADD_CHARACTER: {
       const defaultCharacterInfo = {
         name: "Player",
-        characterID: uuid(),
+        characterID: uuidv4,
         movespeed: "30",
         initiative: 0,
         color: "Black",
@@ -130,7 +130,7 @@ export default function Reducer(state, action) {
     case DELETE_CHARACTER: {
       const defaultCharacterInfo = {
         name: "Player",
-        characterID: uuid(),
+        characterID: uuidv4,
         movespeed: "30",
         initiative: 0,
         color: "Black",

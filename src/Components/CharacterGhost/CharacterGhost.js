@@ -14,9 +14,7 @@ function CharacterGhost({ position, tileSize }) {
         backgroundColor: "grey",
         fontSize: tileSize / 3 + "rem",
       }}
-    >
-      S
-    </div>
+    ></div>
   );
 }
 
