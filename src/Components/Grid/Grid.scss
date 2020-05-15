@@ -1,0 +1,22 @@
+.Grid {
+  display: grid;
+}
+
+.GridContainer {
+  display: grid;
+  margin: 150px;
+  margin-left: 50px;
+  padding: 2rem;
+  // border: #540000 4px solid;
+  // border-radius: 8px;
+}
+
+.GridTiles {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.GridCharacters {
+  grid-column: 1;
+  grid-row: 1;
+}

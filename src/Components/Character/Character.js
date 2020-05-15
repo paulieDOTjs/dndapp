@@ -13,10 +13,9 @@ function Character(props) {
           ? "Character HighlightCharacter"
           : "Character"
       }
-      {...props}
       key="props.props.name"
       style={{
-        height: state.tileSize / 2 + "rem",
+        height: state.tileSize / 2+ "rem",
         width: state.tileSize / 2 + "rem",
         gridColumnStart: props.props.position.x,
         gridRowStart: props.props.position.y,

@@ -7,7 +7,7 @@ export const GameContext = createContext();
 
 // const initialState = CreateState;
 const initialState = {
-  editMode: true,
+  editMode: false,
   selectedObject: 1,
   tileSize: 3,
   turn: 0,
@@ -28,19 +28,10 @@ const initialState = {
       initiative: 12,
       color: "Black",
       number: 0,
-      position: { x: "4", y: "10" },
-    },
-    {
-      name: "Elseth Maleficum",
-      characterID: "c2d49bd1-fc19-4fca-9285-9db2608b5b38",
-      movespeed: "30",
-      initiative: 12,
-      color: "Black",
-      number: 0,
-      position: { x: "4", y: "10" },
+      position: { x: "1", y: "1" },
     },
   ],
-  ghost: { x: "4", y: "10" },
+  ghost: { x: "1", y: "1" },
   tileMap: [
     "0000000000000000",
     "0000000000000000",

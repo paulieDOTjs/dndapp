@@ -1,8 +1,11 @@
 import React from "react";
 import "./MiniGrid.css";
 import MiniTile from "../MiniTile/MiniTile";
+import TileProperties from "../Grid/GridTiles/TileProperties";
+import { tileMapDirectory } from "../../Utils/tileMapDirectory";
 
 function MiniGrid(props) {
+  console.log(props);
   //An array that will hold all the tiles to be placed on the grid
   const tiles = [];
 
@@ -32,14 +35,20 @@ function MiniGrid(props) {
       <MiniTile
         size={size}
         props={props.props}
-        data-row={rowNumber}
-        data-col={colNumber}
+        row={rowNumber}
+        col={colNumber}
         id={tileID}
         key={tileID}
+        TileProperties={TileProperties(
+          rowNumber,
+          colNumber,
+          props.props.tileMap,
+          tileMapDirectory
+        )}
         //Sets the placement for where the tile will be on the grid
         style={{
           gridColumn: `${colNumber}`,
-          gridRow: `${rowNumber}`
+          gridRow: `${rowNumber}`,
         }}
       ></MiniTile>
     );
@@ -52,7 +61,7 @@ function MiniGrid(props) {
    ************************************************************/
   const styling = {
     gridTemplateColumns: `repeat(${props.props.tileMap[0].length}, auto)`,
-    gridTemplateRows: `repeat(${props.props.tileMap.length}, auto)`
+    gridTemplateRows: `repeat(${props.props.tileMap.length}, auto)`,
   };
 
   return (
