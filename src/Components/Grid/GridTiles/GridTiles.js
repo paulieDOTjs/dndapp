@@ -5,23 +5,18 @@ import TileProperties from "./TileProperties";
 import { tileMapDirectory } from "../../../Utils/tileMapDirectory";
 
 function GridTiles(props) {
-  console.log(props.styling);
   //An array that will hold all the tiles to be placed on the grid
   const tiles = [];
 
   //For loop to create the tiles
-  //It will run for as many times as rows times columns from props.state
-  for (
-    let i = 0;
-    i < props.state.tileMap.length * props.state.tileMap[0].length;
-    i++
-  ) {
+  //It will run for as many times as rows times columns from props
+  for (let i = 0; i < props.tileMap.length * props.tileMap[0].length; i++) {
     //Does math to get the row number this tile is in
-    const rowNumber = Math.floor(i / props.state.tileMap[0].length) + 1;
+    const rowNumber = Math.floor(i / props.tileMap[0].length) + 1;
 
     //Does math to get the column number this tile is in
     const colNumber =
-      i + 1 - Math.floor((rowNumber - 1) * props.state.tileMap[0].length);
+      i + 1 - Math.floor((rowNumber - 1) * props.tileMap[0].length);
 
     //Gives an ID based on the row and column number
     const tileID = `Row + ${rowNumber} Col + ${colNumber}`;
@@ -36,11 +31,11 @@ function GridTiles(props) {
         TileProperties={TileProperties(
           rowNumber,
           colNumber,
-          props.state.tileMap,
+          props.tileMap,
           tileMapDirectory
         )}
-        editMode={props.state.editMode}
-        tileSize={props.state.tileSize}
+        editMode={props.editMode}
+        tileSize={props.tileSize}
       ></Tile>
     );
   }

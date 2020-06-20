@@ -15,21 +15,20 @@ function MapFinder(props) {
   function handleDelete(id) {
     superagent
       .delete(process.env.REACT_APP_SERVER_URL + "/api/v1/maps/id/" + id)
-      .then(function(response) {
+      .then(function (response) {
         // handle success
-        console.log(response);
         superagent
           .get(process.env.REACT_APP_SERVER_URL + "/api/v1/maps/" + props.type)
-          .then(function(response) {
+          .then(function (response) {
             // handle success
             setMapsFound(response.body.MapData);
           })
-          .catch(function(error) {
+          .catch(function (error) {
             // handle error
             console.log("error", error);
           });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log("error", error);
       });
@@ -38,18 +37,18 @@ function MapFinder(props) {
   function handleClick(data) {
     dispatch({
       type: Actions.USE_SELECTED_MAP,
-      payload: data
+      payload: data,
     });
   }
 
   useEffect(() => {
     superagent
       .get(process.env.REACT_APP_SERVER_URL + "/api/v1/maps/" + props.type)
-      .then(function(response) {
+      .then(function (response) {
         // handle success
         setMapsFound(response.body.MapData);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log("error", error);
       });
@@ -60,7 +59,7 @@ function MapFinder(props) {
       <div className="MapFinder">
         {mapsFound.length < 1
           ? "...loading"
-          : mapsFound.map(individualMapData => {
+          : mapsFound.map((individualMapData) => {
               const editors = [];
               for (let i = 0; i < individualMapData.editedBy.length; i++) {
                 if (i === 0) {
@@ -97,7 +96,7 @@ function MapFinder(props) {
                         style={{
                           padding: "4px",
                           width: "108px",
-                          marginLeft: "20px"
+                          marginLeft: "20px",
                         }}
                         onClick={() => handleDelete(individualMapData._id)}
                       >
@@ -108,7 +107,7 @@ function MapFinder(props) {
                         style={{
                           padding: "4px",
                           width: "108px",
-                          marginLeft: "20px"
+                          marginLeft: "20px",
                         }}
                         onClick={() => handleDelete(individualMapData._id)}
                       >

@@ -76,7 +76,7 @@ export default function GameProvider(props) {
 
   function handleClick(e) {
     try {
-      e.path.map((x) => {
+      e.path.foreach((x) => {
         if (x.dataset.clickable) {
           if (x.dataset.action) {
             dispatch({

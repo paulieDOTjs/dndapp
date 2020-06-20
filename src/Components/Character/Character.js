@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Character.css";
 
 import { GameContext } from "../../State/Context.js";
 
-//Gets state from context
+//Gets props from context
 function Character(props) {
-  const { state } = useContext(GameContext);
   return (
     <div
       className={
@@ -13,17 +12,16 @@ function Character(props) {
           ? "Character HighlightCharacter"
           : "Character"
       }
-      key="props.props.name"
       style={{
-        height: state.tileSize / 2+ "rem",
-        width: state.tileSize / 2 + "rem",
-        gridColumnStart: props.props.position.x,
-        gridRowStart: props.props.position.y,
-        backgroundColor: props.props.color,
-        fontSize: state.tileSize / 3 + "rem",
+        height: props.tileSize / 2 + "rem",
+        width: props.tileSize / 2 + "rem",
+        gridColumnStart: props.features.position.x,
+        gridRowStart: props.features.position.y,
+        backgroundColor: props.features.color,
+        fontSize: props.tileSize / 3 + "rem",
       }}
     >
-      {props.props.name.slice(0, 1)}
+      {props.features.name.slice(0, 1)}
     </div>
   );
 }

@@ -7,24 +7,26 @@ function GridCharacters(props) {
 
   characters.push(
     <CharacterGhost
-      position={props.state.ghost}
-      tileSize={props.state.tileSize}
+      key="ghost"
+      position={props.ghost}
+      tileSize={props.tileSize}
     />
   );
 
-  for (let i = 0; i < props.state.characters.length; i++) {
+  props.characters.forEach((character, i) => {
     characters.push(
       <Character
-        key={"character" + i}
-        props={props.state.characters[i]}
-        highlight={i === props.state.turn ? "true" : "false"}
+        tileSize={props.tileSize}
+        key={character.id}
+        features={character}
+        highlight={i === props.turn ? "true" : "false"}
       />
     );
-  }
+  });
 
   return (
     <div className="Grid GridCharacters" style={props.styling}>
-      {props.state.editMode ? "" : characters}
+      {props.editMode ? "" : characters}
     </div>
   );
 }

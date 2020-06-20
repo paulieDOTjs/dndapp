@@ -5,7 +5,6 @@ import TileProperties from "../Grid/GridTiles/TileProperties";
 import { tileMapDirectory } from "../../Utils/tileMapDirectory";
 
 function MiniGrid(props) {
-  console.log(props);
   //An array that will hold all the tiles to be placed on the grid
   const tiles = [];
 

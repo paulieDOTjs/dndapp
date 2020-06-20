@@ -14,7 +14,7 @@ function CharacterQuestions({ number, setCharacterInfo, ...props }) {
     initiative: props.characterValues.initiative,
     color: props.characterValues.color,
     position: { ...props.characterValues.position },
-    number: number
+    number: number,
   };
 
   function deleteCharacter(event) {
@@ -22,7 +22,7 @@ function CharacterQuestions({ number, setCharacterInfo, ...props }) {
 
     dispatch({
       type: Actions.DELETE_CHARACTER,
-      payload: characterInfo
+      payload: characterInfo,
     });
   }
 
@@ -48,7 +48,7 @@ function CharacterQuestions({ number, setCharacterInfo, ...props }) {
             onChange={({ target }) => {
               setCharacterInfo({
                 ...characterInfo,
-                initiative: target.value
+                initiative: target.value,
               });
             }}
           />

@@ -35,7 +35,6 @@ export default function Reducer(state, action) {
     }
 
     case RESET_TURN: {
-      console.log(state.ghost);
       const newCharacters = [...state.characters];
       newCharacters[state.turn].position = state.ghost;
       return {
@@ -344,9 +343,7 @@ export default function Reducer(state, action) {
         }
       }
 
-      //Console logs to make sure it did it right, it will be the tile map and the length of the row
-      console.log(tileMapLocal);
-      console.log(tileMapLocal[0].length);
+      //Console logs to make sure it did it right, it will be the tile map and the length of the ro
       return {
         ...state,
         tileMap: tileMapLocal,

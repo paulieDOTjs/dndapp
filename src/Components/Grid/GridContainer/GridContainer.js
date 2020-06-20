@@ -28,7 +28,6 @@ function GridContainer(props) {
     }px + ${state.tileMap[0].length}px )`,
   };
 
-  console.log(styling);
   return (
     <div
       className="GridContainer"
@@ -36,8 +35,19 @@ function GridContainer(props) {
         containerStyling,
       }}
     >
-      <GridCharacters styling={styling} state={state} />
-      <GridTiles styling={styling} state={state} />
+      <GridCharacters
+        styling={styling}
+        turn={state.turn}
+        characters={state.characters}
+        ghost={state.ghost}
+        editMode={state.editMode}
+        tileSize={state.tileSize}
+      />
+      <GridTiles
+        styling={styling}
+        tileMap={state.tileMap}
+        editMode={state.editMode}
+      />
       <Resizer />
     </div>
   );

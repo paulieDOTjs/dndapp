@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import superagent from "superagent";
 import Header from "./Components/Header/Header";
-import SideBar from "./Components/SideBar/SideBar";
 import GameProvider from "./State/Context";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import LogoutPage from "./Pages/LogoutPage/LogoutPage";
-import PlayPage from "./Pages/PlayPage/PlayPage";
+import { MainMainPage } from "./Pages/PlayPage/PlayPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 import PublicMapPage from "./Pages/PublicMapPage/PublicMapPage";
@@ -15,26 +13,14 @@ import UserMapPage from "./Pages/UserMapPage/UserMapPage";
 
 import { Auth } from "./State/auth/auth";
 
-function MainMainPage() {
-  return (
-    <>
-      <SideBar />
-      <PlayPage />
-    </>
-  );
-}
+import db from "./firebase/db";
 
 function App(props) {
-  superagent
-    .get(process.env.REACT_APP_SERVER_URL + "/ping")
-    .then(function(response) {
-      // handle success
-      console.log("ok", response.text);
-    })
-    .catch(function(error) {
-      // handle error
-      console.log("error", error);
+  db.collection("games").onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      console.log(change.doc.data());
     });
+  });
 
   return (
     <div className="App">

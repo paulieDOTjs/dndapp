@@ -10,13 +10,13 @@ function Resizer(props) {
   function handlePlus(e) {
     dispatch({
       type: Actions.UPDATE_MAP_ZOOM,
-      payload: "plus"
+      payload: "plus",
     });
   }
   function handleMinus(e) {
     dispatch({
       type: Actions.UPDATE_MAP_ZOOM,
-      payload: "minus"
+      payload: "minus",
     });
   }
 

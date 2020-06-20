@@ -13,7 +13,7 @@ function CharacterNumberQuestion(props) {
   function saveAllCharacters() {
     dispatch({
       type: Actions.UPDATE_CHARACTER_INFO,
-      payload: characters
+      payload: characters,
     });
   }
 
@@ -52,7 +52,7 @@ function CharacterNumberQuestion(props) {
       {characters.map((values, number) => {
         return (
           <CharacterQuestions
-            setCharacterInfo={character => {
+            setCharacterInfo={(character) => {
               const newCharacters = [...characters];
               newCharacters[number] = character;
               setCharacters(newCharacters);

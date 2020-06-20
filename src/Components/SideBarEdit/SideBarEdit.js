@@ -12,7 +12,7 @@ function SideBarEdit(props) {
   const { state, dispatch } = useContext(GameContext);
   const [mapInfo, setMapInfo] = useState({
     x: state.tileMap[0].length,
-    y: state.tileMap.length
+    y: state.tileMap.length,
   });
 
   const characters = [...state.characters];
@@ -25,7 +25,7 @@ function SideBarEdit(props) {
 
     dispatch({
       type: Actions.CREATE_MAP,
-      payload: newValues
+      payload: newValues,
     });
   }
 
@@ -36,7 +36,7 @@ function SideBarEdit(props) {
       savedBy: state.username,
       creator: state.creator === "" ? state.username : state.creator,
       editedBy: state.editedBy,
-      private: state.private
+      private: state.private,
     };
 
     superagent
@@ -47,7 +47,7 @@ function SideBarEdit(props) {
         console.log("error", err);
         if (err === null) {
           dispatch({
-            type: Actions.SAVE_MAP
+            type: Actions.SAVE_MAP,
           });
         }
       });
@@ -91,7 +91,7 @@ function SideBarEdit(props) {
               onChange={({ target }) => {
                 dispatch({
                   type: Actions.UPDATE_MAP_NAME,
-                  payload: target.value
+                  payload: target.value,
                 });
               }}
             />
@@ -141,7 +141,7 @@ function SideBarEdit(props) {
                 onChange={({ target }) => {
                   setMapInfo({
                     ...mapInfo,
-                    x: target.value > 1000 ? 1000 : target.value
+                    x: target.value > 1000 ? 1000 : target.value,
                   });
                 }}
               />
@@ -155,7 +155,7 @@ function SideBarEdit(props) {
                 onChange={({ target }) => {
                   setMapInfo({
                     ...mapInfo,
-                    y: target.value > 1000 ? 1000 : target.value
+                    y: target.value > 1000 ? 1000 : target.value,
                   });
                 }}
               />
@@ -221,7 +221,7 @@ function SideBarEdit(props) {
     state.private,
     mapInfo,
     state.characters,
-    state.mapName
+    state.mapName,
   ]);
 }
 

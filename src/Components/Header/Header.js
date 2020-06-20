@@ -15,12 +15,12 @@ function Header(props) {
     if (user) {
       dispatch({
         type: Actions.UPDATE_USER,
-        payload: user.name
+        payload: user.name,
       });
     } else {
       dispatch({
         type: Actions.UPDATE_USER,
-        payload: ""
+        payload: "",
       });
     }
   }, [user]);
