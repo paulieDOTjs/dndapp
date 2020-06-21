@@ -1,11 +1,14 @@
 import React from "react";
 import "./HomePage.css";
+import CenterSquare from "../CenterSquare/CenterSquare";
 
 function HomePage(props) {
   return (
-    <div className="HomePage">
-      <h1>Welcome to the TTRPG Battle Map Simulator!</h1>
-    </div>
+    <CenterSquare>
+      <div className="HomePage">
+        <h1>Welcome to the TTRPG Battle Map Simulator!</h1>
+      </div>
+    </CenterSquare>
   );
 }
 
